@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Heart Disease Forecaster</title>
+</head>
+
+<style>
+    body {
+        background-image: url("/static/img/1.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+
+
+
+
+
+
+
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        background-color: #fff;
+        color: #333;
+    }
+
+    .container {
+        padding: 30px 100px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 45px;
+        margin: 20px 0;
+        color: #1e272e;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    hr {
+        margin: 40px 0;
+    }
+</style>
+
+
+
+
+
+<body>
+
+    <div class="section-content container">
+        <div class="text-center">
+
+            <div class="text-center">
+                <h1>Heart Disease Forecaster</h1>
+                <small
+                    class="fs-1 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption text-muted">
+                    <b>Enter the values below</b>
+                </small>
+                <br>
+                <br>
+
+            </div>
+
+            <div class="row">
+
+
+
+                <div class="col-lg-8 offset-lg-2">
+
+                    <form method="post" action="result" class="row mt-17">
+                        {% csrf_token %}
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Age" class="form-label">Age</label>
+                                <input type="number" class="form-control" id="Age" name="Age"
+                                    placeholder="Enter your age" required="">
+                            </div>
+
+                           
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Blood Pressure" class="form-label">Blood Pressure</label>
+                                <input type="number" class="form-control" id="Blood Pressure" name="Blood Pressure"
+                                    placeholder="Resting bloodpressure" required="">
+                            </div>
+
+                           
+                        </div>
+
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Serum Cholestoral" class="form-label">Serum Cholestoral</label>
+                                <input type="number" class="form-control" id="Serum Cholestoral"
+                                    name="Serum Cholestoral" placeholder="Serum cholestoral in mg/dl" required="">
+                            </div>
+
+                           
+                        </div>
+
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Heart Rate" class="form-label">Heart Rate</label>
+                                <input type="number" class="form-control" id="Heart Rate" name="Heart Rate"
+                                    placeholder="Maximum heart rate achieved" required="">
+                            </div>
+
+                            
+                        </div>
+
+
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="ST Depression" class="form-label">ST Depression</label>
+                                <input type="number" class="form-control" id="ST Depression" name="ST Depression"
+                                    placeholder="ST depression induced by exercise relative to rest" required="">
+                            </div>
+
+                           
+                        </div>
+
+
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="Number of major vessels">Number of major vessels</label>
+
+                                <input type="number" class="form-control" id="Number of major vessels"
+                                    name="Number of major vessels" placeholder="number of major vessels" required="">
+                            </div>
+                        </div>
+                      
+                </div>
+
+
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Sex">Sex</label>
+                        <select input type="text" class="custom-select d-block w-100" id="Sex" name="Sex" required="">
+                            <option value="">Choose...</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    
+                </div>
+
+
+
+
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Chest Pain Type">Chest Pain Type</label>
+                        <select input type="text" class="custom-select d-block w-100" id="Chest Pain Type"
+                            name="Chest Pain Type" required="">
+                            <option value="">Choose...</option>
+                            <option>typical angina</option>
+                            <option>atypical angina</option>
+                            <option>non-anginal pain</option>
+                            <option>asymptomatic</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+
+
+                <div class="col-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="Fasting Blood Sugar > 120 mg/dl">Fasting Blood Sugar > 120 mg/dl</label>
+                        <select input type="text" class="custom-select d-block w-100"
+                            id="Fasting Blood Sugar > 120 mg/dl" name="Fasting Blood Sugar > 120 mg/dl" required="">
+                            <option value="">Choose...</option>
+                            <option>True</option>
+                            <option>False</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+
+
+
+
+                <div class="col-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="Resting Electrocardiographic Measurement">Resting Electrocardiographic
+                            Measurement</label>
+                        <select input type="text" class="custom-select d-block w-100"
+                            id="Resting Electrocardiographic Measurement"
+                            name="Resting Electrocardiographic Measurement" required="">
+                            <option value="">Choose...</option>
+                            <option>normal</option>
+                            <option>ST-T wave abnormality</option>
+                            <option>probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+
+
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Exercise Induced Angina">Exercise Induced Angina</label>
+                        <select input type="text" class="custom-select d-block w-100" id="Exercise Induced Angina"
+                            name="Exercise Induced Angina" required="">
+                            <option value="">Choose...</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                  
+                </div>
+
+
+
+
+
+
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Thalassemia">Thalassemia</label>
+                        <select input type="text" class="custom-select d-block w-100" id="Thalassemia"
+                            name="Thalassemia" required="">
+                            <option value="">Choose...</option>
+                            <option>normal</option>
+                            <option>fixed defect</option>
+                            <option>reversable defect</option>
+                            <option>none</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+
+
+
+
+
+                <div class="col-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="Slope of the peak exercise ST segment">Slope of the peak exercise ST segment</label>
+                        <select input type="text" class="custom-select d-block w-100"
+                            id="Slope of the peak exercise ST segment" name="Slope of the peak exercise ST segment"
+                            required="">
+                            <option value="">Choose...</option>
+                            <option>upsloping</option>
+                            <option>flat</option>
+                            <option>downsloping</option>
+                        </select>
+                    </div>
+                   
+                </div>
+
+                <div class="col-12 d-flex justify-content-between align-items-center flex-column flex-md-row">
+                    <div class="form-group mb-0"><button class="btn btn-primary btn-lg">Predict</button></div>
+                </div>
+
+
+
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
